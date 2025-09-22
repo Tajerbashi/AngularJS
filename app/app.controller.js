@@ -3,16 +3,33 @@ angular.module('myApp', [])  // defines the "myApp" module
     .controller('AppController', ['$http', '$scope', function ($http, $scope) {
         const vm = this;
         vm.users = [
-            {name:'Ahmad1',email:'Ahmad1@mail.com'},
-            {name:'Ahmad2',email:'Ahmad2@mail.com'},
-            {name:'Ahmad3',email:'Ahmad3@mail.com'},
-            {name:'Ahmad4',email:'Ahmad4@mail.com'},
-            {name:'Ahmad5',email:'Ahmad5@mail.com'},
-            {name:'Ahmad6',email:'Ahmad6@mail.com'},
-            {name:'Ahmad7',email:'Ahmad7@mail.com'},
-            {name:'Ahmad8',email:'Ahmad8@mail.com'},
+            { name: 'Ahmad1', email: 'Ahmad1@mail.com' },
+            { name: 'Ahmad2', email: 'Ahmad2@mail.com' },
+            { name: 'Ahmad3', email: 'Ahmad3@mail.com' },
+            { name: 'Ahmad4', email: 'Ahmad4@mail.com' },
+            { name: 'Ahmad5', email: 'Ahmad5@mail.com' },
+            { name: 'Ahmad6', email: 'Ahmad6@mail.com' },
+            { name: 'Ahmad7', email: 'Ahmad7@mail.com' },
+            { name: 'Ahmad8', email: 'Ahmad8@mail.com' },
         ];
         vm.newUser = {};
+
+        vm.print = function () {
+            let printContents = document.querySelector('.container').innerHTML;
+            let popup = window.open('', '_blank', 'width=800,height=600');
+            popup.document.write(`
+    <html>
+      <head>
+        <title>User List</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+      <body>${printContents}</body>
+    </html>
+  `);
+            popup.document.close();
+            popup.print();
+        };
+
 
         // vm.loadUsers = function() {
         //   $http.get('/api/users').then(res => vm.users = res.data);
@@ -37,7 +54,7 @@ angular.module('myApp', [])  // defines the "myApp" module
 
         vm.remove = function (user) {
             // $http.delete('/api/users/' + user._id).then(() => vm.loadUsers());
-            
+
         };
 
         // initial load
