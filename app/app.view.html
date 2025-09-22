@@ -1,0 +1,12 @@
+<div>
+    <h1>
+        {{UserModel.username}}
+    </h1>
+      <h1>
+        {{UserModel.email}}
+    </h1>
+  <h2>User List</h2>
+  <div ng-repeat="user in vm.users">
+    {{user.name}} - {{user.email}}
+  </div>
+</div>
