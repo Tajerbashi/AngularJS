@@ -2,6 +2,11 @@
 angular.module('myApp', [])  // defines the "myApp" module
     .controller('AppController', ['$http', '$scope', function ($http, $scope) {
         const vm = this;
+        vm.students = [
+            { id: 1, name: "Alice", grade: "A" },
+            { id: 2, name: "Bob", grade: "B" },
+            { id: 3, name: "Charlie", grade: "C" }
+        ];
         vm.users = [
             { name: 'Ahmad1', email: 'Ahmad1@mail.com' },
             { name: 'Ahmad2', email: 'Ahmad2@mail.com' },
@@ -30,6 +35,19 @@ angular.module('myApp', [])  // defines the "myApp" module
             popup.print();
         };
 
+        $scope.printTable = function () {
+            window.print();
+        };
+
+        $scope.printCard = function (cardId) {
+            var content = document.getElementById(cardId).innerHTML;
+            var myWindow = window.open('', '', '');
+            myWindow.document.write('<html><head><title>Print Report</title></head><body>');
+            myWindow.document.write(content);
+            myWindow.document.write('</body></html>');
+            myWindow.document.close();
+            myWindow.print();
+        };
 
         // vm.loadUsers = function() {
         //   $http.get('/api/users').then(res => vm.users = res.data);

@@ -36,5 +36,158 @@
         </div>
       </div>
     </div>
+    <div>
+      <button ng-click="printTable()">Print Table</button>
+
+      <table
+        border="1"
+        width="50%"
+        style="border-collapse: collapse; text-align: left"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="student in students">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.grade}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div id="card1" class="card">
+        <h3>Report 1</h3>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <p>Some data here...</p>
+        <button ng-click="printCard('card1')">Print PDF</button>
+      </div>
+
+      <div id="card2" class="card">
+        <h3>Report 2</h3>
+        <p>Some data here...</p>
+        <button ng-click="printCard('card2')">Print PDF</button>
+      </div>
+
+      <div id="card3" class="card">
+        <h3>Report 3</h3>
+        <p>Some data here...</p>
+        <button ng-click="printCard('card3')">Print PDF</button>
+      </div>
+
+      <div id="card4" class="card">
+        <h3>Report 4</h3>
+        <p>Some data here...</p>
+        <button ng-click="printCard('card4')">Print PDF</button>
+      </div>
+    </div>
   </body>
 </html>
