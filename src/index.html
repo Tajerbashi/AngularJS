@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJS with Node.js</title>
+    <script src="assets/libs/angularjs/angular.min.js"></script>
+    <script src="assets/libs/angularjs/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="app/configs/app.config.js"></script>
+    <script src="app/pages/dashboard/home/home.controller.js"></script>
+    <script src="app/pages/dashboard/about/about.controller.js"></script>
+    <script src="app/pages/dashboard/contact/contact.controller.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body ng-controller="MainController">
+    <header>
+      <div>Header - {{appTitle}}</div>
+    </header>
+
+    <nav>
+      <div>
+        <ul>
+          <li><a href="#!/home">Home</a></li>
+          <li><a href="#!/contact">Contact</a></li>
+          <li><a href="#!/about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- AngularJS will inject views here -->
+      <div ng-view></div>
+    </main>
+  </body>
+</html>
