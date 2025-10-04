@@ -6,6 +6,9 @@
     <title>AngularJS with Node.js</title>
     <script src="assets/libs/angularjs/angular.min.js"></script>
     <script src="assets/libs/angularjs/angular-route.min.js"></script>
+    <script src="assets/libs/ocLazyLoad/ocLazyLoad.min.js"></script>
+    <script src="assets/libs/ocLazyLoad/ocLazyLoad.require.min.js"></script>
+
     <script src="app.js"></script>
     <script src="app.run.js"></script>
     <script src="app/configs/app.config.js"></script>
@@ -15,6 +18,7 @@
     <script src="app/pages/dashboard/contact/contact.controller.js"></script>
     <script src="app/pages/common/forms/forms.controller.js"></script>
     <script src="app/pages/common/formValidations/formValidations.controller.js"></script>
+
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body ng-controller="MainController">
@@ -38,5 +42,7 @@
       <!-- AngularJS will inject views here -->
       <div ng-view></div>
     </main>
+
+    <div ng-if="loading" class="loading-indicator">Loading...</div>
   </body>
 </html>

@@ -10,12 +10,12 @@ function($document) {
   };
   
   this.removeAll = function() {
-    var links = $document.find('link[rel="stylesheet"]');
-    links.each(function() {
-      var link = angular.element(this);
-      if (link.attr('href').indexOf('app/pages/') !== -1) {
-        link.remove();
-      }
-    });
+    // var links = $document.find('link[rel="stylesheet"]');
+    // links.each(function() {
+    //   var link = angular.element(this);
+    //   if (link.attr('href').indexOf('app/pages/') !== -1) {
+    //     link.remove();
+    //   }
+    // });
   };
 }]);

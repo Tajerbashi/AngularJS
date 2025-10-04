@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp', ['ngRoute','oc.lazyLoad'])
     .controller('MainController', ['$scope', '$http', function ($scope, $http) {
         var vm = this;
         vm.title = 'AngularJS with Node.js Server';
@@ -20,3 +20,4 @@ angular.module('myApp', ['ngRoute'])
         };
     }]);
 
+var app = angular.module('myApp');

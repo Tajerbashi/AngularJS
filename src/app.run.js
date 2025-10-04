@@ -1,12 +1,13 @@
-angular.module('myApp').run(['$rootScope', 'cssInjector',
-    function ($rootScope, cssInjector) {
-        $rootScope.$on('$routeChangeStart', function () {
-            cssInjector.removeAll();
-        });
+angular.module('myApp').run(['$rootScope', function ($rootScope) {
+    $rootScope.$on('$routeChangeStart', function () {
+        $rootScope.loading = true;
+    });
 
-        $rootScope.$on('$routeChangeSuccess', function (event, current) {
-            if (current && current.css) {
-                cssInjector.inject(current.css);
-            }
-        });
-    }]);
+    $rootScope.$on('$routeChangeSuccess', function () {
+        $rootScope.loading = false;
+    });
+
+    $rootScope.$on('$routeChangeError', function () {
+        $rootScope.loading = false;
+    });
+}]);
