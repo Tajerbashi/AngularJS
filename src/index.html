@@ -7,10 +7,14 @@
     <script src="assets/libs/angularjs/angular.min.js"></script>
     <script src="assets/libs/angularjs/angular-route.min.js"></script>
     <script src="app.js"></script>
+    <script src="app.run.js"></script>
     <script src="app/configs/app.config.js"></script>
+    <script src="app/services/app.services.js"></script>
     <script src="app/pages/dashboard/home/home.controller.js"></script>
     <script src="app/pages/dashboard/about/about.controller.js"></script>
     <script src="app/pages/dashboard/contact/contact.controller.js"></script>
+    <script src="app/pages/common/forms/forms.controller.js"></script>
+    <script src="app/pages/common/formValidations/formValidations.controller.js"></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body ng-controller="MainController">
@@ -24,6 +28,8 @@
           <li><a href="#!/home">Home</a></li>
           <li><a href="#!/contact">Contact</a></li>
           <li><a href="#!/about">About</a></li>
+          <li><a href="#!/forms">Forms</a></li>
+          <li><a href="#!/form-validations">Form Validations</a></li>
         </ul>
       </div>
     </nav>
