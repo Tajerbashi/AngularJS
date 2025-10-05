@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AngularJS with Node.js</title>
+    <!-- Angular JS -->
     <script src="assets/libs/angularjs/angular.min.js"></script>
     <script src="assets/libs/angularjs/angular-route.min.js"></script>
+
+    <!-- Lazy Loading -->
     <script src="assets/libs/ocLazyLoad/ocLazyLoad.min.js"></script>
     <script src="assets/libs/ocLazyLoad/ocLazyLoad.require.min.js"></script>
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/libs/bootstrap/fonts/bootstrap-icons.css"
+    />
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="app.js"></script>
     <script src="app.run.js"></script>
@@ -42,6 +54,7 @@
       <!-- AngularJS will inject views here -->
       <div ng-view></div>
     </main>
+
 
     <div ng-if="loading" class="loading-indicator">Loading...</div>
   </body>

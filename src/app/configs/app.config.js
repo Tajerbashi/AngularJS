@@ -44,6 +44,39 @@ angular.module('myApp')
         //   controllerAs: 'vm',
         //   css: 'app/pages/common/formValidations/formValidations.style.css'
         // })
+        // .when('/forms', {
+        //   templateUrl: 'app/pages/common/forms/forms.view.html',
+        //   controller: 'FormsController',
+        //   controllerAs: 'vm',
+        //   resolve: {
+        //     load: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
+        //       return $ocLazyLoad.load({
+        //         name: 'myApp',
+        //         files: [
+        //           'app/pages/common/forms/forms.controller.js',
+        //           'app/pages/common/forms/forms.style.css'
+        //         ]
+        //       });
+        //     }]
+        //   }
+        // })
+        // .when('/form-validations', {
+        //   templateUrl: 'app/pages/common/formValidations/formValidations.view.html',
+        //   controller: 'FormValidationsController',
+        //   controllerAs: 'vm',
+        //   resolve: {
+        //     load: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
+        //       return $ocLazyLoad.load({
+        //         name: 'myApp',
+        //         files: [
+        //           'app/pages/common/formValidations/formValidations.controller.js',
+        //           'app/pages/common/formValidations/formValidations.style.css'
+        //         ]
+        //       });
+        //     }]
+        //   }
+        // })
+        
         .when('/home', {
           templateUrl: 'app/pages/dashboard/home/home.view.html',
           controller: 'HomeController',
@@ -83,22 +116,7 @@ angular.module('myApp')
             }]
           }
         })
-        // .when('/forms', {
-        //   templateUrl: 'app/pages/common/forms/forms.view.html',
-        //   controller: 'FormsController',
-        //   controllerAs: 'vm',
-        //   resolve: {
-        //     load: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
-        //       return $ocLazyLoad.load({
-        //         name: 'myApp',
-        //         files: [
-        //           'app/pages/common/forms/forms.controller.js',
-        //           'app/pages/common/forms/forms.style.css'
-        //         ]
-        //       });
-        //     }]
-        //   }
-        // })
+
         .when('/forms', {
           templateUrl: 'app/pages/common/forms/forms.view.html',
           controller: 'FormsController',
@@ -137,22 +155,7 @@ angular.module('myApp')
             }]
           }
         })
-        // .when('/form-validations', {
-        //   templateUrl: 'app/pages/common/formValidations/formValidations.view.html',
-        //   controller: 'FormValidationsController',
-        //   controllerAs: 'vm',
-        //   resolve: {
-        //     load: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
-        //       return $ocLazyLoad.load({
-        //         name: 'myApp',
-        //         files: [
-        //           'app/pages/common/formValidations/formValidations.controller.js',
-        //           'app/pages/common/formValidations/formValidations.style.css'
-        //         ]
-        //       });
-        //     }]
-        //   }
-        // })
+
         .otherwise({
           redirectTo: '/home'
         });

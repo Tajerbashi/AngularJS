@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute','oc.lazyLoad'])
+angular.module('myApp', ['ngRoute', 'oc.lazyLoad'])
     .controller('MainController', ['$scope', '$http', function ($scope, $http) {
         var vm = this;
         vm.title = 'AngularJS with Node.js Server';
