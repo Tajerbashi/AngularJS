@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 angular.module('myApp').factory('LazyLoadService', ['$ocLazyLoad', '$q',
   function($ocLazyLoad, $q) {
     
