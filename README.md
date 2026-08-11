@@ -797,3 +797,6 @@ https://github.com/KTajerbashi
 # 📄 License
 
 This project is available for educational and portfolio purposes.
+
+# 🪜 Steps
+```` Step 1 → Solution & Projects → Step 2 → Domain → Step 3 → Database → Step 4 → Auth → Step 5 → ML.NET → Step 6 → Chat UI → Step 7 → SignalR ````
