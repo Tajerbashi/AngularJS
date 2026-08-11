@@ -1,8 +1,12 @@
-# Chatgram
+# Chatgram AI
 
-A real-time chat application built with **AngularJS, .NET 10, SQL Server, and SignalR**.
+> An AI-powered chatbot built with **AngularJS, .NET 10, ML.NET, SignalR, and SQL Server**.
 
-Chatgram is a portfolio-oriented full-stack application designed to demonstrate modern backend architecture, authentication, real-time communication, database design, and production-oriented software development practices.
+Chatgram AI is a full-stack intelligent chatbot project designed to demonstrate practical **.NET, Machine Learning, real-time communication, and software architecture** skills.
+
+The chatbot uses **ML.NET** to classify user messages into predefined intents and generate appropriate responses based on the detected intent.
+
+---
 
 ## 🚀 Tech Stack
 
@@ -21,7 +25,15 @@ Chatgram is a portfolio-oriented full-stack application designed to demonstrate 
 * Entity Framework Core
 * SignalR
 * JWT Authentication
-* RESTful APIs
+
+### Machine Learning
+
+* ML.NET
+* Text Classification
+* Intent Classification
+* Model Training
+* Model Evaluation
+* Model Prediction
 
 ### Database
 
@@ -32,56 +44,158 @@ Chatgram is a portfolio-oriented full-stack application designed to demonstrate 
 ### Architecture
 
 * Clean Architecture
-* Domain-Driven Design principles
 * Dependency Injection
+* SOLID Principles
+* Separation of Concerns
 * Repository Pattern
 * Service/Application Layer
-* Separation of Concerns
 
 ---
 
-## ✨ Features
+# 🤖 How It Works
 
-### Authentication
+Chatgram AI uses a machine-learning model to understand the user's message and predict its intent.
+
+```text
+User
+ │
+ │ "I forgot my password"
+ ▼
+AngularJS
+ │
+ ▼
+.NET 10 API
+ │
+ ▼
+ML.NET Model
+ │
+ ▼
+Intent Classification
+ │
+ └── PasswordReset
+        │
+        ▼
+ Response Engine
+        │
+        ▼
+"I can help you reset your password."
+```
+
+The system separates **message understanding** from **response generation**, making it possible to extend the chatbot with additional intents and business rules.
+
+---
+
+# 🧠 Machine Learning
+
+The initial machine-learning model focuses on **text classification**.
+
+Example training data:
+
+```text
+Text                              Intent
+------------------------------------------------
+Hello                             Greeting
+Hi                                Greeting
+Good morning                      Greeting
+
+I forgot my password              PasswordReset
+How can I reset my password?      PasswordReset
+I need to change my password      PasswordReset
+
+What are your working hours?      BusinessHours
+When are you open?                BusinessHours
+
+I want to cancel my order         CancelOrder
+Cancel my purchase                CancelOrder
+```
+
+The model learns the relationship between user messages and their corresponding intents.
+
+At runtime:
+
+```text
+Input Text
+    │
+    ▼
+ML.NET Model
+    │
+    ▼
+Predicted Intent
+    │
+    ▼
+Confidence Score
+    │
+    ▼
+Response Engine
+    │
+    ▼
+Chatbot Response
+```
+
+---
+
+# 🎯 Core Features
+
+## Authentication
 
 * User registration
 * User login
 * JWT authentication
-* Refresh token support
+* Refresh tokens
 * Logout
-* Password hashing
 * Protected API endpoints
-* Authentication middleware
+* Password hashing
+* Authorization
 
-### Chat
+## Chat
 
-* One-to-one conversations
-* Real-time messaging
+* Real-time chatbot conversation
 * Message history
-* Online/offline user status
-* Typing indicator
-* Message read status
 * Conversation management
+* User-specific conversations
+* Real-time responses
+* Typing indicator
 
-### Real-Time Communication
+## Machine Learning
 
-Chatgram uses **SignalR** to provide real-time communication between users.
+* Intent classification
+* ML.NET model training
+* Model evaluation
+* Model prediction
+* Confidence score
+* Fallback handling
+* Training dataset management
 
-The application can deliver events such as:
+## Response Engine
 
-* New messages
-* Typing notifications
-* User online/offline status
-* Message read status
+The response engine maps predicted intents to appropriate responses.
+
+```text
+Greeting
+    ↓
+Greeting Response
+
+PasswordReset
+    ↓
+Password Reset Response
+
+BusinessHours
+    ↓
+Business Hours Response
+
+Unknown
+    ↓
+Fallback Response
+```
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ Architecture
 
-The backend follows a Clean Architecture approach.
+The application follows a Clean Architecture approach.
 
 ```text
-Chatgram
+Chatgram AI
 │
 ├── Frontend
 │   └── AngularJS
@@ -92,236 +206,433 @@ Chatgram
 │   ├── Chatgram.Domain
 │   └── Chatgram.Infrastructure
 │
+├── Machine Learning
+│   └── Chatgram.ML
+│
 ├── Database
 │   └── SQL Server
 │
-└── Real-Time
-    └── SignalR
+└── Tests
+    ├── Chatgram.UnitTests
+    └── Chatgram.IntegrationTests
 ```
 
-### Project Layers
+---
 
-#### Chatgram.Api
+# 📦 Project Structure
 
-Responsible for:
+```text
+src/
+│
+├── Chatgram.Api
+│
+├── Chatgram.Application
+│
+├── Chatgram.Domain
+│
+├── Chatgram.Infrastructure
+│
+└── Chatgram.ML
 
-* HTTP endpoints
-* Authentication configuration
-* Middleware
-* SignalR Hubs
-* Dependency Injection
-* API configuration
+tests/
+│
+├── Chatgram.UnitTests
+└── Chatgram.IntegrationTests
 
-#### Chatgram.Application
+frontend/
+└── AngularJS application
 
-Contains application business logic:
+docs/
+├── architecture
+├── machine-learning
+└── api
+```
 
-* Commands
-* Queries
-* DTOs
-* Application services
+---
+
+# 🔹 Application Layer
+
+The Application layer contains the main application use cases.
+
+Responsibilities include:
+
+* Chat operations
+* Authentication
+* Conversation management
+* Message processing
+* Intent prediction
+* Response generation
 * Validation
-* Interfaces
 
-#### Chatgram.Domain
+Example flow:
 
-Contains the core business domain:
+```text
+ChatController
+      │
+      ▼
+ChatService
+      │
+      ├── ML Prediction
+      │
+      ├── Intent Processing
+      │
+      └── Response Generation
+```
 
-* Entities
-* Value Objects
-* Domain rules
-* Domain interfaces
-* Business logic
+---
 
-#### Chatgram.Infrastructure
+# 🔹 Domain Layer
 
-Responsible for external concerns:
+The Domain layer contains the core business concepts.
 
-* Entity Framework Core
+Example entities:
+
+```text
+User
+Conversation
+Message
+Intent
+TrainingExample
+ChatbotResponse
+RefreshToken
+```
+
+The Domain layer does not depend on infrastructure or UI technologies.
+
+---
+
+# 🔹 Infrastructure Layer
+
+The Infrastructure layer handles external dependencies.
+
+Responsibilities include:
+
 * SQL Server
-* Repository implementations
+* Entity Framework Core
+* Repositories
 * Authentication infrastructure
+* Persistence
 * External services
 
 ---
 
-## 🗄️ Database Design
+# 🧠 ML Layer
 
-The initial database contains the following main entities:
+The ML layer is responsible for machine-learning operations.
+
+```text
+Chatgram.ML
+│
+├── Dataset
+│
+├── Training
+│
+├── Evaluation
+│
+├── Prediction
+│
+└── Models
+```
+
+Example workflow:
+
+```text
+Training Dataset
+      │
+      ▼
+Data Preparation
+      │
+      ▼
+ML.NET Pipeline
+      │
+      ▼
+Training
+      │
+      ▼
+Evaluation
+      │
+      ▼
+Model
+      │
+      ▼
+Prediction
+```
+
+---
+
+# 💬 Real-Time Communication
+
+SignalR is used to provide real-time communication between the client and backend.
+
+```text
+AngularJS
+    │
+    │ SignalR
+    ▼
+.NET 10
+    │
+    ▼
+Chat Service
+    │
+    ▼
+ML.NET
+    │
+    ▼
+Response
+    │
+    ▼
+SignalR
+    │
+    ▼
+AngularJS
+```
+
+This allows chatbot responses to be delivered immediately without continuous polling.
+
+---
+
+# 🔐 Authentication
+
+Chatgram AI uses JWT-based authentication.
+
+```text
+Login
+  │
+  ▼
+ASP.NET Core API
+  │
+  ├── Validate Credentials
+  │
+  ├── Access Token
+  │
+  └── Refresh Token
+  │
+  ▼
+AngularJS
+  │
+  ▼
+Authenticated Requests
+```
+
+Protected resources require a valid JWT access token.
+
+---
+
+# 🗄️ Database
+
+The initial database design includes:
 
 ```text
 Users
   │
   ├── RefreshTokens
   │
-  └── ConversationParticipants
-             │
-             ▼
-       Conversations
-             │
-             ▼
-         Messages
+  └── Conversations
+          │
+          ▼
+       Messages
+
+TrainingExamples
+      │
+      ▼
+    Intents
+
+ChatbotResponses
 ```
 
-### Main Tables
+### Main Entities
 
 #### Users
 
-Stores application users and their authentication/profile information.
-
-#### RefreshTokens
-
-Stores refresh tokens used to obtain new access tokens.
+Stores user authentication and profile information.
 
 #### Conversations
 
-Represents a chat conversation.
-
-#### ConversationParticipants
-
-Maps users to conversations.
+Represents a chatbot conversation.
 
 #### Messages
 
-Stores messages exchanged between users.
+Stores messages exchanged between the user and chatbot.
+
+#### Intents
+
+Stores available chatbot intents.
+
+#### TrainingExamples
+
+Contains examples used to train the ML.NET model.
+
+#### ChatbotResponses
+
+Contains responses associated with detected intents.
 
 ---
 
-## 🔐 Authentication Flow
+# 📊 Model Evaluation
 
-Chatgram uses JWT-based authentication.
+The machine-learning model will be evaluated using appropriate classification metrics.
+
+The project will track metrics such as:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+
+Example:
 
 ```text
-Client
-  │
-  │ Login
-  ▼
-.NET API
-  │
-  ├── Validate credentials
-  │
-  ├── Generate Access Token
-  │
-  └── Generate Refresh Token
-  │
-  ▼
-Client
-  │
-  │ Authorization: Bearer <token>
-  ▼
-Protected API
+Model Evaluation
+----------------
+Accuracy:   0.94
+Precision:  0.93
+Recall:     0.92
+F1 Score:   0.92
 ```
 
-Access tokens are used for API authentication, while refresh tokens are used to obtain new access tokens.
+> The values above are examples only. Actual metrics will be reported after model training.
 
 ---
 
-## 💬 Real-Time Chat Flow
+# 🛡️ Confidence & Fallback
+
+The chatbot should not blindly trust every prediction.
 
 ```text
-User A
-  │
-  │ Send Message
-  ▼
-AngularJS
-  │
-  ▼
-SignalR
-  │
-  ▼
-.NET 10
-  │
-  ├── Validate user
-  ├── Store message
-  └── Broadcast event
-  │
-  ▼
-SignalR
-  │
-  ▼
-User B
+User Message
+     │
+     ▼
+ML.NET Prediction
+     │
+     ▼
+Confidence Score
+     │
+     ├── High Confidence
+     │       ↓
+     │    Process Intent
+     │
+     └── Low Confidence
+             ↓
+       Fallback Response
 ```
 
-This allows messages to appear in real time without requiring the client to continuously poll the API.
+For low-confidence predictions, the chatbot can ask the user to rephrase the question or provide additional information.
 
 ---
 
-## 🛠️ Getting Started
+# 🛠️ Getting Started
 
-### Prerequisites
+## Prerequisites
 
-Make sure you have the following installed:
+Install:
 
 * .NET 10 SDK
 * SQL Server
 * Node.js / npm
-* A modern web browser
 * Git
+* Modern web browser
 
-### Clone Repository
+---
+
+## Clone
 
 ```bash
-git clone https://github.com/KTajerbashi/angularjs.chatgram.git
+git clone https://github.com/KTajerbashi/chatgram-ai.git
 
-cd angularjs.chatgram
+cd chatgram-ai
 ```
 
-### Configure Database
+---
 
-Update the SQL Server connection string in the backend configuration:
+## Configure Database
+
+Update the connection string in the backend configuration:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=ChatgramDb;Trusted_Connection=True;TrustServerCertificate=True"
+    "DefaultConnection": "Server=localhost;Database=ChatgramAiDb;Trusted_Connection=True;TrustServerCertificate=True"
   }
 }
 ```
 
-### Apply Database Migrations
+---
+
+## Apply Migrations
 
 ```bash
 dotnet ef database update
 ```
 
-### Run Backend
+---
+
+## Run Backend
 
 ```bash
 dotnet run
 ```
 
-The API will be available through the configured ASP.NET Core URLs.
+---
 
-### Run Frontend
+## Run Frontend
 
-Open the AngularJS application and configure the API and SignalR endpoints according to the local environment.
+Start the AngularJS application using the configured development environment.
+
+Configure:
+
+```text
+API URL
+SignalR Hub URL
+```
+
+according to your local environment.
 
 ---
 
-## 🧪 Testing
+# 🧪 Testing
 
-The project is intended to include automated tests for the main application layers.
+The project is designed to include both unit and integration tests.
 
 ```text
 tests/
+│
 ├── Chatgram.UnitTests
+│
 └── Chatgram.IntegrationTests
 ```
 
 Testing areas include:
 
-* Authentication
-* User registration
+### Authentication
+
+* Registration
 * Login
-* Token validation
+* JWT validation
+* Refresh tokens
+
+### Chat
+
 * Conversation creation
-* Sending messages
-* Message authorization
-* API endpoints
+* Message processing
+* Message persistence
+
+### Machine Learning
+
+* Intent prediction
+* Confidence handling
+* Model integration
+* Response selection
+
+### API
+
+* Endpoint validation
+* Authorization
+* Error handling
 
 ---
 
-## 🔒 Security
+# 🔒 Security
 
 Security is an important part of the project.
 
@@ -329,134 +640,153 @@ The application is designed around:
 
 * JWT authentication
 * Password hashing
-* Protected API endpoints
-* Authorization policies
-* Refresh token rotation
+* Authorization
 * Input validation
-* User authorization
+* Protected API endpoints
 * Secure database access
-* Separation of authentication and business logic
+* Refresh token management
+* Configuration-based secrets
+* Separation of concerns
 
-Secrets and connection strings should not be committed to source control.
+Sensitive configuration values should never be committed to source control.
 
 ---
 
-## 📋 Roadmap
+# 📋 Roadmap
 
-### Phase 1 — Foundation
+## Phase 1 — Foundation
 
-* [x] Repository setup
-* [ ] Backend solution
+* [ ] Repository structure
+* [ ] .NET 10 solution
 * [ ] Clean Architecture
-* [ ] SQL Server integration
-* [ ] EF Core configuration
+* [ ] SQL Server
+* [ ] EF Core
+* [ ] AngularJS integration
 
-### Phase 2 — Authentication
+## Phase 2 — Authentication
 
 * [ ] User registration
 * [ ] Login
-* [ ] JWT access token
+* [ ] JWT
 * [ ] Refresh token
 * [ ] Logout
 * [ ] Authorization
 
-### Phase 3 — Chat
+## Phase 3 — Chat
 
-* [ ] User list
-* [ ] Create conversation
-* [ ] Send message
+* [ ] Chat UI
+* [ ] Conversations
+* [ ] Messages
 * [ ] Message history
-* [ ] SignalR integration
-* [ ] Online/offline status
-* [ ] Typing indicator
-* [ ] Read status
+* [ ] SignalR
+* [ ] Real-time responses
 
-### Phase 4 — Quality
+## Phase 4 — Machine Learning
 
-* [ ] Unit tests
-* [ ] Integration tests
-* [ ] Global exception handling
-* [ ] Structured logging
-* [ ] API documentation
-* [ ] Validation
-* [ ] Security hardening
+* [ ] Training dataset
+* [ ] Intent definitions
+* [ ] ML.NET pipeline
+* [ ] Model training
+* [ ] Model evaluation
+* [ ] Model persistence
+* [ ] Prediction service
+* [ ] Confidence score
+* [ ] Fallback handling
 
-### Phase 5 — Deployment
+## Phase 5 — Administration
+
+* [ ] Training data management
+* [ ] Intent management
+* [ ] Response management
+* [ ] Model training endpoint
+* [ ] Model evaluation dashboard
+* [ ] Model versioning
+
+## Phase 6 — Production
 
 * [ ] Docker
 * [ ] Docker Compose
 * [ ] CI/CD
+* [ ] Structured logging
+* [ ] Monitoring
 * [ ] Production configuration
 * [ ] Cloud deployment
 
 ---
 
-## 📚 API Documentation
+# 🔮 Future Features
 
-The API will provide RESTful endpoints for:
+Potential future improvements:
 
-```text
-/api/auth
-/api/users
-/api/conversations
-/api/messages
-```
-
-SignalR will provide real-time communication through:
-
-```text
-/hubs/chat
-```
-
-API documentation will be available through Swagger/OpenAPI.
+* Conversation context
+* Conversation memory
+* Multi-turn conversations
+* Entity extraction
+* Semantic search
+* Knowledge base
+* Document-based question answering
+* Retrieval-Augmented Generation (RAG)
+* LLM integration
+* Multiple AI models
+* Model versioning
+* Analytics dashboard
+* Human handoff
+* Multi-language support
 
 ---
 
-## 🎯 Project Goals
+# 🎯 Project Goals
 
-The primary goal of Chatgram is to demonstrate practical full-stack software engineering skills, including:
+The main goal of Chatgram AI is to demonstrate practical experience with:
 
-* Backend development with .NET 10
-* C# development
-* REST API design
-* Real-time communication with SignalR
-* SQL Server database design
+* C#
+* .NET 10
+* ASP.NET Core
+* AngularJS
+* SQL Server
 * Entity Framework Core
-* JWT authentication
+* ML.NET
+* Machine Learning
+* Natural Language Processing
+* Text Classification
+* Intent Classification
+* SignalR
+* JWT Authentication
 * Clean Architecture
-* Automated testing
-* Security
+* REST API
+* Automated Testing
 * Docker
 * CI/CD
 
-This project is continuously evolving as new engineering practices and features are introduced.
+This project is developed as a portfolio project with a focus on practical software engineering and applied machine learning.
 
 ---
 
-## 📌 Future Features
+# 📚 Documentation
 
-Potential future improvements include:
+Project documentation will cover:
 
-* Group conversations
-* Message reactions
-* File and image attachments
-* Reply to messages
-* Message editing
-* Message deletion
-* Message search
-* User profiles
-* Notifications
-* Block users
-* Presence management
-* Admin dashboard
-* Docker deployment
-* Cloud deployment
+* Architecture
+* Database design
+* API design
+* Authentication
+* SignalR
+* ML.NET training
+* Dataset preparation
+* Model evaluation
+* Deployment
+
+Documentation will be maintained under:
+
+```text
+/docs
+```
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**KTajerbashi**
+**Tajer-K**
 
 GitHub:
 
@@ -464,6 +794,6 @@ https://github.com/KTajerbashi
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is available for educational and portfolio purposes.
